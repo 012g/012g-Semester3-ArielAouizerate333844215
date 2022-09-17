@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link defer rel="stylesheet" type="text/css" href="../Static/homestyle.css" media="screen" />
+    <link rel="icon" href="../Media/icon.png">
+    <script src="../Static/function.js"></script>
+
+    <meta charset="utf-8" />
+    <title>Welcome</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="formContent">
+         <!-- Tabs Titles -->
+         <h2 class="inactive underlineHover"> <a href="../View/My-Events.html">My Events</a> </h2>
+         <h2 class="active"> Create Event</h2>
+         <h2 class="inactive underlineHover"> <a href="../View/Join-Event.html">Join Event</a> </h2>
+         <h2 class="inactive underlineHover-Log-Out"><a href="../View/SignIn.html">Log Out</a> </h2>
+
+
+             <!--Create Event Form -->
+             <form action="" method="" onsubmit ="modify()" >
+                <input type="text" id="TeamName" name="TeamName" placeholder="Team Name">
+                <input type="text" id="EventPlaces" name="Places" placeholder="Slots">
+                <input type="text" id="EventCategory" name="Category" placeholder="Category">
+                <input type="text" id="EventAddress"  name="EventAddress" placeholder="Address"> <br>
+                <label class="DateLable">Select date of Event:</label>
+                <input type="datetime-local" id="EventDate" name="EventDate">
+                <p class="text-monospace" id="uuid">Event ID will appear in My-Events after form is sent!</p>
+                <input type="submit" class="btn btn-primary GeneralButton"  value="Create Event">
+                
+            </form>
+            
+            <!-- bottom style -->
+            <div id="formFooterSignUp"></div>
+
+        </div>
+    </div>
+</body>
+</html>
