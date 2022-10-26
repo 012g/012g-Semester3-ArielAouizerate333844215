@@ -1,0 +1,33 @@
+doctype html
+head
+  link(defer='' rel='stylesheet' type='text/css' href='/static/homestyle.css' media='screen')
+  link(rel='icon' href='/media/icon.png')
+  script(src='/static/function.js')
+  meta(charset='utf-8')
+  title Welcome
+.wrapper
+  #formContent
+    // Tabs Titles
+    h2.inactive.underlineHover
+      a(href='/events/my-events') My Events
+    h2.active  Create Event
+    h2.inactive.underlineHover
+      a(href='/events/join-event') Join Event
+    h2.inactive.underlineHover-Log-Out
+      a(href='/users/logout') Log Out
+    // Create Event Form
+
+    p.error-message=error
+
+    form(action='/events/create' method='post')
+      input#TeamName(type='text' name='teamName' placeholder='Team Name')
+      input#EventPlaces(type='text' name='slots' placeholder='Slots')
+      input#EventCategory(type='text' name='category' placeholder='Category')
+      input#EventAddress(type='text' name='address' placeholder='Address')
+      br
+      label.DateLable Select date of Event:
+      input#EventDate(type='datetime-local' name='date')
+      p#uuid.text-monospace Event ID will appear in My-Events after form is sent!
+      input.btn.btn-primary.GeneralButton(type='submit' value='Create Event')
+    // bottom style
+    #formFooterSignUp
