@@ -28,11 +28,11 @@ A Code generator that generates uniq code in order to create "invite code" to gr
 
 How to run server:
 
-1 Download mongodb community server + node JS + mongo compass. 
-2a create a folder called data at c://data and inside it a folder called "db"
-2b open visual studio and the open the project folder
-3 run "npm install" via the visual studio's terminal
-4 open cmd and change dir to c://program files/mongodb/server/6.0/bin 
-5. type mongod
-6 return to visual studio's terminal and type "npm start" (runs the server - will be up on port localhost:3000)
-7 use mongoDB compass to navigate across database after queries are entered connection details -> mongodb://127.0.0.1:27017/arimarcel
+1 Download mongodb community server + node JS + mongo compass. <br/>
+2a create a folder called data at c://data and inside it a folder called "db" <br/>
+2b open visual studio and the open the project folder <br/>
+3 run "npm install" via the visual studio's terminal <br/>
+4 open cmd and change dir to c://program files/mongodb/server/6.0/bin  <br/> 
+5. type mongod <br/>
+6 return to visual studio's terminal and type "npm start" (runs the server - will be up on port localhost:3000 - in browser) <br/>
+7 use mongoDB compass to navigate across database after queries are entered connection details -> mongodb://127.0.0.1:27017/arimarcel <br/>
