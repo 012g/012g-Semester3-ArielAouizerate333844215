@@ -66,16 +66,12 @@ function verify_password_are_the_same() {
 window.onload = () => {
   const items = document.querySelectorAll(".item");
   items.forEach((item) => {
-    item.children[0].addEventListener("click", toggleDropDown);
-
+    console.log('setting map')
     const map = item.querySelector(".map");
     const input = item.querySelector("input[name=eventId]");
     map.id = input.value;
-
     const long = +item.querySelector(".long").value;
     const lat = +item.querySelector(".lat").value;
-
-    var leafMap = L.map(map.id).setView([lat, long], 13);
     var geojsonFeature = {
       type: "Feature",
       geometry: {
@@ -83,38 +79,23 @@ window.onload = () => {
         coordinates: [long, lat],
       },
     };
+    // Init map
+    var leafMap = L.map(map.id).setView([lat, long], 13);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(leafMap);
-
     L.geoJSON(geojsonFeature).addTo(leafMap);
+    // Add toggle click handler
+    item.children[0].addEventListener("click", function (e) {
+      const dropDown = e.currentTarget.parentNode.children[1];
+      dropDown.classList.toggle("visible");
+      setTimeout(function(){
+        leafMap.invalidateSize()
+      }, 333);
+    });
   });
-
-  // var map = L.map("map").setView([33.5914237, 73.0535122], 13);
-  // var map2 = L.map("map2").setView([33.5914237, 73.0535122], 13);
-  // var geojsonFeature = {
-  //   type: "Feature",
-  //   geometry: {
-  //     type: "Point",
-  //     coordinates: [73.0535122, 33.5914237],
-  //   },
-  // };
-  // L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  //   maxZoom: 19,
-  //   attribution:
-  //     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  // }).addTo(map);
-
-  // L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  //   maxZoom: 19,
-  //   attribution:
-  //     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  // }).addTo(map2);
-
-  // L.geoJSON(geojsonFeature).addTo(map);
-  // L.geoJSON(geojsonFeature).addTo(map2);
 };
 
 function toggleDropDown(e) {

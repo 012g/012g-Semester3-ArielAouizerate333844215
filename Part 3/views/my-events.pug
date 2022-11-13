@@ -3,8 +3,8 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(defer='' rel='stylesheet' type='text/css' href='/static/homestyle.css' media='screen')
   link(rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="")
+  link(defer='' rel='stylesheet' type='text/css' href='/static/homestyle.css' media='screen')
   script(src='/static/function.js')
   script(src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin="")
   link(rel='icon' href='/media/icon.png')
@@ -38,32 +38,18 @@ head
               p=event.teamName
               input.ArrowMyEvent(type='button' value='➤')
               form(action="/events/delete" method="POST")
-                input(name="eventId" hidden value=event._id)
+                input(name="eventId" hidden value=event.id)
                 input.ArrowMyEvent.delete(type='submit' value='🗑')
             div.item-dropdown
-              p Event Code: #{event._id}
+              p Event Code: #{event.id}
               p Team Name: #{event.teamName}
               p Slots : #{event.slots}
               p Event Category: #{event.category}
               p Event Address: #{event.address}
               p Event Date: #{new Date(event.date).getFullYear()} - #{new Date(event.date).getMonth() + 1} - #{new Date(event.date).getDate()}
-              input.long(value=event.location.coordinates[0] hidden)
-              input.lat(value=event.location.coordinates[1] hidden)
+              input.long(value=event.coordinates.y hidden)
+              input.lat(value=event.coordinates.x hidden)
               div.map
-        //- .item
-        //-   | Item A
-        //-   input.ArrowMyEvent(type='button' value='➤')
-        //- .item
-        //-   | Item B
-        //-   input.ArrowMyEvent(type='button' value='➤')
-        //- .item
-        //-   | Item C
-        //-   input.ArrowMyEvent(type='button' value='➤')
-        //- .item
-        //-   | Item D
-        //-   input.ArrowMyEvent(type='button' value='➤')
-        //- .item
-        //-   | Item E
-        //-   input.ArrowMyEvent(type='submit' value='➤')
+
     // bottom style
     #formFooterSignUp

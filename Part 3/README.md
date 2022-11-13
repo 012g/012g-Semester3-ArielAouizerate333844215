@@ -1,4 +1,6 @@
-# Events Project
+Fixes since part 2:
+1. Added validation of password on signup page.
+2. Added a small about footer to inform more the user on the web-site.
 
 Folder Structure of the Project:
 - server.js - The root file which runs the server
@@ -24,15 +26,29 @@ A Code generator that generates uniq code in order to create "invite code" to gr
 - Express + Express-Session - For user signin and signup
     1. Added an option of seing if user already joined with this email.
     2. added option to manage event (delete and not allow joining for full event)
-- MongoDB
+- MySQL
+
 
 How to run server:
+1. Download mysql + node js
+2a. open local cd and run npm install to download needed modules
+2b. open mysqlshell and past script from bellow the +++
+2c. open local cd and run node .\setup_db.js
+3. open local cd and run npm start
+4. Access local server on port 3000
 
-1 Download mongodb community server + node JS + mongo compass. 
-2a create a folder called data at c://data and inside it a folder called "db"
-2b open visual studio and the open the project folder
-3 run "npm install" via the visual studio's terminal
-4 open cmd and change dir to c://program files/mongodb/server/6.0/bin 
-5. type mongod
-6 return to visual studio's terminal and type "npm start" (runs the server - will be up on port localhost:3000)
-7 use mongoDB compass to navigate across database after queries are entered connection details -> mongodb://127.0.0.1:27017/arimarcel
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Script to create db table! 
+
+
+        CREATE DATABASE db_main DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+        CREATE USER 'db_user'@'%' IDENTIFIED WITH mysql_native_password BY 'CxULdd61jbmTcibS';
+        GRANT ALL PRIVILEGES ON db_main.* TO 'db_user'@'%';
+        FLUSH PRIVILEGES;
+
+
+
+// db root user
+//Pass123

@@ -6,7 +6,6 @@ const {
   logout,
   postSignin,
 } = require("../controllers/user");
-
 // This file is responsible for the routes related to the user
 
 // Route for the signin page
